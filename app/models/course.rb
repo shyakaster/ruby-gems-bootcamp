@@ -16,7 +16,7 @@ class Course < ApplicationRecord
   #   @random_slug ||= persisted? ? friendly_id : SecureRandom.hex(4)
   # end
   #
-  # def to_s
+  #def to_s
   #   slug
   # end
 
