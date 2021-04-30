@@ -9,6 +9,68 @@
         %span.input-group-append
           %button.btn.btn-primary.btn-sm{:type => "submit"}
             %span.fa.fa-search{"aria-hidden" => "true"}
+.card-group.shadow
+  .card
+    .card-body
+      %h1
+        .fa.fa-graduation-cap
+      -# = pluralize(Course.approved.published.count, 'online courses')
+      = Course.count
+      online courses
+      .row
+      Explore a variety of fresh topics
+  .card
+    .card-body
+      %h1
+        .fa.fa-chalkboard-teacher
+        /.fa.fa-brain
+      -# = pluralize(Course.distinct.count(:user_id), 'expert instructors')
+      = Course.distinct.count(:user_id)
+      expert instructors
+      .row
+      Find the right instructor for you
+  .card
+    .card-body
+      %h1
+        .fa.fa-user-graduate
+      -# = pluralize(User.count, 'active learners')
+      = User.count
+      active learners
+      .row
+      Join the knowledge sharing community
+  .card
+    .card-body
+      %h1
+        .fa.fa-infinity
+      Lifetime access
+      .row
+      Learn on your schedule
+
+%p
+
+%hr
+%h2
+  Popular courses
+  %h6
+  .card-columns
+    - @courses.each do |course|
+      = render 'courses/course', course: course
+%hr
+%h2
+  Most recent courses
+  %h6
+  .card-columns
+    - @recent_courses.each do |course|
+      = render 'courses/course', course: course
+%hr
+%h2
+  Top rated courses
+  %h6
+  .card-columns
+    - @courses.each do |course|
+      = render 'courses/course', course: course
+
+%hr
 .fa.fa-flag
 .fab.fa-amazon
 = link_to root_path do
