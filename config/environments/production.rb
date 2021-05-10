@@ -7,7 +7,7 @@ Rails.application.configure do
     config.action_mailer.delivery_method = :smtp
   
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { :host => 'ruby-gems-bootcamp-1.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'ruby-gems-bootcamp-1.herokuapp.com' }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
