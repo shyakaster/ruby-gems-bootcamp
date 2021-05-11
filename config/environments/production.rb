@@ -5,6 +5,22 @@ Rails.application.configure do
     config.action_mailer.perform_deliveries = true,
     config.action_mailer.raise_delivery_errors = true,
     config.action_mailer.delivery_method = :smtp
+
+    config.action_mailer.smtp_settings = {
+      port: 587,
+      address: 'email-smtp.us-east-2.amazonaws.com,
+      user_name: 'AKIAUZBNMFOWCDG2BXNC',
+      password: 'BK5JcFKciXsf1pElndPuwrEXysU6FDQy3ylpsTYoEcKD',
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+    Rails.application.config.middleware.use ExceptionNotification::Rack,
+      email:{
+        deliver_with: deliver,
+        email_prefix: "[PREFIX]",
+        sender_address: %("corsego error" <alex.nkusi@codeimpact.co>),
+        exception_recipients: %w(nkusialex@gmail.com)
+      }
   
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = { :host => 'ruby-gems-bootcamp-1.herokuapp.com' }
