@@ -19,7 +19,7 @@ Rails.application.configure do
         deliver_with: deliver,
         email_prefix: "[PREFIX]",
         sender_address: %("corsego error" <alex.nkusi@codeimpact.co>),
-        exception_recipients: %w(nkusialex@gmail.com)
+        exception_recipients: %w[nkusialex@gmail.com]
       }
   
   # Settings specified here will take precedence over those in config/application.rb.
