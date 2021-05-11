@@ -21,12 +21,12 @@ Rails.application.configure do
     #     sender_address: %("corsego error" <alex.nkusi@codeimpact.co>),
     #     exception_recipients: %w[nkusialex@gmail.com]
     #   }
-    Rails.application.config.middleware.use ExceptionNotification::Rack,
+    Rails.application.config.middleware.use ExceptionNotifier,
       email: {
         deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
         email_prefix: "[PREFIX] ",
         sender_address: %("corsego error" <alex.nkusi@codeimpact.co>),
-        exception_recipients: %w[yshmarov@gmail.com]
+        exception_recipients: %w[nkusialex@gmail.com]
     }
   
   # Settings specified here will take precedence over those in config/application.rb.
