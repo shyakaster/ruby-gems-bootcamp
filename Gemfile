@@ -1,63 +1,65 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby "2.7.1"
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
+gem "rails", "~> 6.1.1"
+# gem 'rails', github: 'rails/rails', branch: 'master'
+gem "pg", ">= 0.18", "< 2.0"
+gem "puma", "~> 4.1"
+gem "sass-rails", ">= 6"
+gem "webpacker", "~> 4.0"
+gem "turbolinks", "~> 5"
+gem "jbuilder", "~> 2.7"
+gem "bootsnap", ">= 1.4.2", require: false
 
-# Use Puma as the app server
-gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-gem "haml-rails", "~> 2.0"
-gem 'simple_form'
-gem 'faker'
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-group :production do
-  gem 'pg', '~> 1.1'
-end
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
-gem "exception_notification", group: :production 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  # Use postgresql as the database for Active Record
-  gem 'pg', '~> 1.1'
+  gem "web-console", ">= 3.3.0"
+  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "spring"
+  gem "spring-watcher-listen", "~> 2.0.0"
+  gem "standard", group: :development
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem "capybara", ">= 2.15"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise'
-gem 'friendly_id', '~> 5.4.0'
+gem "haml-rails", "~> 2.0" # HTML abstraction markup language
+# gem 'font-awesome-sass', '~> 5.12.0' #add icons for styling #installed via yarn withot gem
+gem "simple_form" # creating forms made easier
+gem "faker" # fake data for seeds.rb
+gem "devise", github: "heartcombo/devise", branch: "master" # https://stackoverflow.com/a/66155946/5695646
+gem "friendly_id", "~> 5.2.4" # nice URLs and hide IDs
+gem "ransack" # filter and sort data
+gem "public_activity" # see all activity in the app
+gem "rolify" # give users roles (admin, teacher, student)
+gem "pundit" # authorization (different roles have different accesses)
+gem "exception_notification", group: :production # email notifications if any errors in production
+gem "pagy" # pagination
+gem "chartkick" # charts #yarn add chartkick chart.js
+gem "groupdate" # group records by day/week/year
+gem "rails-erd", group: :development # sudo apt-get install graphviz; bundle exec erd
+gem "ranked-model" # give serial/index numbers to items in a list
+gem "aws-sdk-s3", require: false # save images and files in production
+gem "active_storage_validations" # validate image and file uploads
+gem "image_processing" # sudo apt install imagemagick
+gem "recaptcha" # for new user registration
+gem "wicked_pdf" # PDF for Ruby on Rails
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
+gem "wicked" # multistep forms
+gem "omniauth-google-oauth2" # sign in with google
+gem "omniauth-github" # sign in with github
+gem "omniauth-facebook" # sign in with facebook
+gem "omniauth-rails_csrf_protection"
+gem "cocoon" # nested forms
+gem "stripe" # accept payments 
+gem 'sitemap_generator' # SEO and webmasters
+gem 'devise_invitable', '~> 2.0.0' # invite users
