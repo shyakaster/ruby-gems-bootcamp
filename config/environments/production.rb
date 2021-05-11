@@ -14,13 +14,20 @@ Rails.application.configure do
       authentication: :plain,
       enable_starttls_auto: true
     }
+    # Rails.application.config.middleware.use ExceptionNotification::Rack,
+    #   email:{
+    #     deliver_with: deliver,
+    #     email_prefix: "[PREFIX]",
+    #     sender_address: %("corsego error" <alex.nkusi@codeimpact.co>),
+    #     exception_recipients: %w[nkusialex@gmail.com]
+    #   }
     Rails.application.config.middleware.use ExceptionNotification::Rack,
-      email:{
-        deliver_with: deliver,
-        email_prefix: "[PREFIX]",
+      email: {
+        deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+        email_prefix: "[PREFIX] ",
         sender_address: %("corsego error" <alex.nkusi@codeimpact.co>),
-        exception_recipients: %w[nkusialex@gmail.com]
-      }
+        exception_recipients: %w[yshmarov@gmail.com]
+    }
   
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = { :host => 'ruby-gems-bootcamp-1.herokuapp.com' }
@@ -59,7 +66,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
