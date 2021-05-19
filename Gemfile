@@ -62,4 +62,4 @@ gem "omniauth-rails_csrf_protection"
 gem "cocoon" # nested forms
 gem "stripe" # accept payments 
 gem 'sitemap_generator' # SEO and webmasters
-gem 'devise_invitable', '~> 2.0.0' # invite users
+gem 'devise_invitable', '~> 2.0.0' # invite usersƒ
