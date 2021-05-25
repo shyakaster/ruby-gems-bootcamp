@@ -1,8 +1,8 @@
-%h1 Listing courses
-
-Courses:
-= @courses.count
-
+%h3
+  .text-center
+    Courses
+    .badge.badge-info
+      = @courses.count
 .row
   .col-md-2
     /= search_form_for @q do |f|
