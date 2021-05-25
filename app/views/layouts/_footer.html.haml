@@ -1,0 +1,22 @@
+%hr
+%footer
+    .container
+        .row
+            .col-md-4
+                Copyright
+                @
+                = Time.now.year
+                CodeImpact SMC
+                .row
+                .fa.fa-envelope
+                = mail_to 'alex.nkusi@codeimpact.co'
+                .row
+            .col-md-4
+                Privacy policy
+                .row
+                Terms and Conditions
+            .col-md-4
+                About us 
+                .row
+                - link_to ' Teach on CodeImpact', new_course_path
+%br
